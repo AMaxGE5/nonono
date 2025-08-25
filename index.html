@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>metal slug1 - PS1</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Ajuste solo para este juego */
+    .game-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    .game-container #game {
+      width: 640px;
+      height: 480px;
+      border: 4px solid #222;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav derecho -->
+  <nav class="nav-right">
+    <a href="index.html" class="chip">Inicio</a>
+    <a href="menu.html" class="chip">Menú</a>
+    <a href="lista.html" class="chip">Lista de deseos</a>
+    <a href="faq.html" class="chip">FAQ</a>
+  </nav>
+
+  <!-- Contenido centrado -->
+  <div class="center-wrap">
+    <div class="center-card">
+      <h2 class="title-glow">metal slug1 <span class="badge">PS1</span></h2>
+
+      <!-- Aquí el juego con EmulatorJS -->
+      <div class="game-container">
+        <div id="game"></div>
+      </div>
+
+      <p class="note-muted">Si el emulador tarda en cargar, espera unos segundos y activa pantalla completa para mejor experiencia (F11).</p>
+    </div>
+  </div>
+
+  <!-- Botón engrane -->
+  <button id="gear" class="gear" aria-label="Notas">⚙️</button>
+
+  <!-- Notas desplegables -->
+  <section id="sheet" class="sheet" aria-hidden="true">
+    <div class="head">
+      <h3 class="m0">Notas de metal slug1</h3>
+      <button id="close-sheet" class="btn-ghost">Cerrar</button>
+    </div>
+    <div class="body">
+      <article class="card">
+        <h4 class="h4-tight">Info rápida</h4>
+        <p class="small">Metal Slug es un juego de disparos run and gun lanzado en 1996. Es famoso por su acción intensa, animaciones detalladas y multijugador cooperativo.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Script para EmulatorJS -->
+  <script>
+    EJS_player = "#game";                     
+    EJS_core = "psx";                         
+    EJS_gameName = "Metal Slug 1";           
+    EJS_color = "#222";                      
+    EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+    EJS_gameUrl = "https://tusitio.com/apps/Metal_Slug_1.iso";   // Enlace público a la ROM
+    EJS_biosUrl = "https://tusitio.com/apps/SCPSACIO00.bin";      // Enlace público a la BIOS
+  </script>
+  <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
+  <!-- Script solo para esta página -->
+  <script>
+    const gear = document.getElementById("gear");
+    const sheet = document.getElementById("sheet");
+    const closeSheet = document.getElementById("close-sheet");
+
+    gear.addEventListener("click", () => sheet.classList.add("open"));
+    closeSheet.addEventListener("click", () => sheet.classList.remove("open"));
+  </script>
+</body>
+</html>
